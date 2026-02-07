@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Muskan ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #ff4d6d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0.7; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.container {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.7);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  font-size: 28px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  margin: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background: gray;
+  color: white;
+  position: relative;
+}
+
+#message {
+  display: none;
+  margin-top: 25px;
+  font-size: 20px;
+  line-height: 1.6;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.signature {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ffccd5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Will you be my Valentine, Muskan? 💖</h1>
+
+  <button id="yesBtn">Yes 💘</button>
+  <button id="noBtn">No 😏</button>
+
+  <div id="message">
+    Muskan ❤️<br><br>
+    Shayad duniya ke liye ye sirf ek question ho…  
+    par mere liye ye dil ka decision hai.  
+    <br><br>
+    Tum meri aadat nahi ho,  
+    tum meri choice ho — har roz ki choice.  
+    <br><br>
+    Aaj bhi… kal bhi… hamesha. ✨
+    
+    <div class="signature">
+      — Mohit ❤️ Muskan
+    </div>
+  </div>
+</div>
+
+<script>
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+let message = document.getElementById("message");
+
+let size = 18;
+
+noBtn.addEventListener("mouseover", function() {
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * 80 + "%";
+  noBtn.style.top = Math.random() * 80 + "%";
+});
+
+noBtn.addEventListener("click", function() {
+  size += 8;
+  yesBtn.style.fontSize = size + "px";
+});
+
+yesBtn.addEventListener("click", function() {
+  message.style.display = "block";
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+});
+
+/* Generate Floating Hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
